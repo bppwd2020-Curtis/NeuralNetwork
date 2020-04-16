@@ -1,5 +1,5 @@
 def sigmoid(x):
     return 1/(1+numpy.exp(-x))
 
-def sigmoid_p(x):
-    return sigmoid(x) * (1-sigmoid(x))
+def actFunct_p(x):
+    return x * (1-x)
