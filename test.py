@@ -8,9 +8,9 @@ n3 = Neuron("Blue")
 
 neurons = [n1,n2,n3]
 inputLayer = NeuralNetLayer(neurons)
-nn = NeuralNetwork([inputLayer],2000000,0.0001)
+nn = NeuralNetwork([inputLayer],2000000,0.00001)
 
-mystery = [0,255,255]
+mystery = [255,255,255]
 
 data = [
 		#Colors That Look Good in Black
