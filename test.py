@@ -8,29 +8,29 @@ n3 = Neuron("Blue")
 
 neurons = [n1,n2,n3]
 inputLayer = NeuralNetLayer(neurons)
-nn = NeuralNetwork([inputLayer],20000,0.001)
+nn = NeuralNetwork([inputLayer],2000,0.001)
 
-mystery = [255,255,255]
+mystery = [12.8,0,0]
 
 data = [
 		#Colors That Look Good in Black
-		[255,255,0,1],#yellow
-		[0,0,255,1],#blue
-		[255,0,0,1],#red
-		[0,255,0,1],#green
-		[128,0,128,1],#purple
-		[218,165,32,1],#golden
-		[255,255,255,1],#white
-		[0,255,255,1],#cyan
-		[255,0,255,1],#magenta
-		[192,192,192,1],#silver
+		[25.5,25.5,0,1],#yellow
+		[0,0,25.5,1],#blue
+		[25.5,0,0,1],#red
+		[0,25.5,0,1],#green
+		[12.8,0,12.8,1],#purple
+		[21.8,16.5,3.2,1],#golden
+		[25.5,25.5,25.5,1],#white
+		[0,25.5,25.5,1],#cyan
+		[25.5,0,25.5,1],#magenta
+		[19.2,19.2,19.2,1],#silver
 		#Colors That Look good on White
-		[128,0,0,0],#maroon
-		[0,128,0,0],#green
+		[12.8,0,0,0],#maroon
+		[0,12.8,0,0],#green
 		[0,0,0,0],#black
-		[128,128,128,0],#gray
-		[0,128,128,0],#teal
-		[0,0,128,0]#Navy
+		[12.8,12.8,12.8,0],#gray
+		[0,12.8,12.8,0],#teal
+		[0,0,12.8,0]#Navy
 		]
 
 nn.train_all(data, reLu)
