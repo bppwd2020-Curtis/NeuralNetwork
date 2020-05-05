@@ -45,4 +45,4 @@ class NeuralNetwork:
 
 	def train_all(self, training_data,actFun):
 		for i in range(self.epochs):
-			self.train(training_data)
+			self.train(training_data,actFun)
