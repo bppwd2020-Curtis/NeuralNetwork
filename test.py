@@ -8,7 +8,7 @@ n3 = Neuron("Blue")
 
 neurons = [n1,n2,n3]
 inputLayer = NeuralNetLayer(neurons)
-nn = NeuralNetwork([inputLayer],2000000,0.00001)
+nn = NeuralNetwork([inputLayer],20000,0.001)
 
 mystery = [255,255,255]
 
@@ -33,9 +33,9 @@ data = [
 		[0,0,128,0]#Navy
 		]
 
-nn.train_all(data)
+nn.train_all(data, reLu)
 
-if(sigmoid(nn.neuralNetLayers[0].getPrediction(mystery)) < 0.5):
+if(sigmoid(nn.neuralNetLayers[0].getPrediction(mystery)) < 0):
 	print("White")
-else:
+elif(sigmoid(nn.neuralNetLayers[0].getPrediction(mystery)) >= 0):
 	print("Black")

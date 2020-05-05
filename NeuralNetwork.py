@@ -6,7 +6,7 @@ class NeuralNetwork:
 		self.epochs = epochs
 		self.learning_rate = learning_rate
 
-	def train(self, training_data):
+	def train(self, training_data, actFun):
 		random_index = numpy.random.randint(len(training_data))
 		point = training_data[random_index]
 
@@ -18,12 +18,12 @@ class NeuralNetwork:
 		#using index 0 for test while studying deep learning
 		
 		z = self.neuralNetLayers[0].getPrediction(point)
-		prediction = sigmoid(z)
+		prediction = actFun(z)
 
 		cost = numpy.square(prediction - target)
 
 		dcost_dpred = 2 * (prediction - target)
-		dpred_dz = actFunct_p(sigmoid(z))
+		dpred_dz = actFunct_p(actFun(z))
 
 		dz_w = point
 
@@ -43,6 +43,6 @@ class NeuralNetwork:
 
 		self.neuralNetLayers[0].bias -= self.learning_rate * dcost_db
 
-	def train_all(self, training_data):
+	def train_all(self, training_data,actFun):
 		for i in range(self.epochs):
 			self.train(training_data)
