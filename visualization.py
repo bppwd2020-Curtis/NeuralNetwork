@@ -33,15 +33,28 @@ def draw_blue(b):
 	blue_y = 2 * (screen.get_height()/3)
 	pygame.draw.rect(screen,(0,0,b),(0,blue_y,screen.get_width()/2,screen.get_height()/3),0)
 
+def draw_rgb(r,g,b):
+	#Use when individual Values
+	draw_red(r)
+	draw_green(g) 
+	draw_blue(b) 
+
+def draw_RGB(rgb):
+	#Use when passed as an array
+	draw_red(rgb[0])
+	draw_green(rgb[1])
+	draw_blue(rgb[2])
+
+def draw_output(r,g,b):
+	pygame.draw.rect(screen,(r,g,b),(screen.get_width()/2,0,screen.get_width()/2,screen.get_height()),0)
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: sys.exit()
 
     clock.tick(30) 
     screen.fill(white)
-    draw_red(255)
-    draw_green(255)
-    draw_blue(255)
+    draw_output(128,0,128)
     
 
 
