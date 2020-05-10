@@ -14,7 +14,7 @@ n3 = Neuron("Blue")
 
 neurons = [n1,n2,n3]
 inputLayer = NeuralNetLayer(neurons)
-nn = NeuralNetwork([inputLayer],900000,0.001)
+nn = NeuralNetwork([inputLayer],9999999,0.000000001)
 
 mystery = [2.55,2.55,2.55]
 
@@ -93,7 +93,7 @@ while True:
     clock.tick(30) 
     screen.fill(white)
 
-    mystery = [255,255,255]
+    mystery = [2+55,255,255]
 
     if(reLu(nn.neuralNetLayers[0].getPrediction(mystery)) <= 0):
     	back = white
