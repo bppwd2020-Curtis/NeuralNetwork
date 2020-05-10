@@ -14,7 +14,7 @@ n3 = Neuron("Blue")
 
 neurons = [n1,n2,n3]
 inputLayer = NeuralNetLayer(neurons)
-nn = NeuralNetwork([inputLayer],9999999,0.000000001)
+nn = NeuralNetwork([inputLayer],9999,0.001)
 
 mystery = [2.55,2.55,2.55]
 
@@ -33,7 +33,7 @@ data = [
 
 nn.train_all(data, reLu)
 
-
+mystery = [2.55,2.55,2.55]
 
 pygame.init()
 
@@ -57,17 +57,17 @@ def draw_text(string,size,color,coord):
 
 def draw_red(r):
 	#draws based on red value
-	pygame.draw.rect(screen,(r,0,0),(0,0,screen.get_width()/2,screen.get_height()/3),0)
+	pygame.draw.rect(screen,(r*100,0,0),(0,0,screen.get_width()/2,screen.get_height()/3),0)
 
 def draw_green(g):
 	#draws based on green value
 	green_y = (screen.get_height()/3)
-	pygame.draw.rect(screen,(0,g,0),(0,green_y,screen.get_width()/2,screen.get_height()/3),0)
+	pygame.draw.rect(screen,(0,g*100,0),(0,green_y,screen.get_width()/2,screen.get_height()/3),0)
 
 def draw_blue(b):
 	#draws based on blue value
 	blue_y = 2 * (screen.get_height()/3)
-	pygame.draw.rect(screen,(0,0,b),(0,blue_y,screen.get_width()/2,screen.get_height()/3),0)
+	pygame.draw.rect(screen,(0,0,b*100),(0,blue_y,screen.get_width()/2,screen.get_height()/3),0)
 
 def draw_rgb(r,g,b):
 	#Use when individual Values
@@ -78,7 +78,7 @@ def draw_rgb(r,g,b):
 def draw_output(r,g,b,back):
 	rect = pygame.Rect(screen.get_width()/2,0,screen.get_width()/2,screen.get_height())
 	pygame.draw.rect(screen,back,rect,0)
-	draw_text("Test",50,(r,g,b),rect.center)
+	draw_text("Test",50,(r*100,g*100,b*100),rect.center)
 
 def draw_total(r,g,b,back):
 	draw_rgb(r,g,b)
@@ -93,8 +93,6 @@ while True:
     clock.tick(30) 
     screen.fill(white)
 
-    mystery = [2+55,255,255]
-
     if(reLu(nn.neuralNetLayers[0].getPrediction(mystery)) <= 0):
     	back = white
     elif(reLu(nn.neuralNetLayers[0].getPrediction(mystery)) > 0):
@@ -102,8 +100,15 @@ while True:
 
     draw_total(mystery[0],mystery[1],mystery[2],back)
 
+    pressed = pygame.key.get_pressed()
 
+    if(pressed[pygame.K_i]):
+    	print("Input New RGB Values: ")
+    	mystery[0] = float(input("Red: "))/100
+    	mystery[1] = float(input("Green: "))/100
+    	mystery[2] = float(input("Blue: "))/100
 
+    print(mystery)
 
     pygame.display.flip()
 
