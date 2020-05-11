@@ -12,8 +12,10 @@ n1 = Neuron("Red")
 n2 = Neuron("Green")
 n3 = Neuron("Blue")
 
+
 neurons = [n1,n2,n3]
 inputLayer = NeuralNetLayer(neurons)
+
 nn = NeuralNetwork([inputLayer],9999,0.001)
 
 mystery = [2.55,2.55,2.55]
@@ -87,28 +89,27 @@ def draw_total(r,g,b,back):
 
 
 while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT: sys.exit()
+	for event in pygame.event.get():
+		if event.type == pygame.QUIT: sys.exit()
 
-    clock.tick(30) 
-    screen.fill(white)
+	clock.tick(30) 
+	screen.fill(white)
 
-    if(reLu(nn.neuralNetLayers[0].getPrediction(mystery)) <= 0):
-    	back = white
-    elif(reLu(nn.neuralNetLayers[0].getPrediction(mystery)) > 0):
-   		back = black
+	if(reLu(nn.neuralNetLayers[0].getPrediction(mystery)) <= 0):
+		back = white
+	elif(reLu(nn.neuralNetLayers[0].getPrediction(mystery)) > 0):
+		back = black
 
-    draw_total(mystery[0],mystery[1],mystery[2],back)
+	draw_total(mystery[0],mystery[1],mystery[2],back)
 
-    pressed = pygame.key.get_pressed()
+	pressed = pygame.key.get_pressed()
 
-    if(pressed[pygame.K_i]):
-    	print("Input New RGB Values: ")
-    	mystery[0] = float(input("Red: "))/100
-    	mystery[1] = float(input("Green: "))/100
-    	mystery[2] = float(input("Blue: "))/100
+	if(pressed[pygame.K_i]):
+		print("Input New RGB Values: ")
+		mystery[0] = float(input("Red: "))/100
+		mystery[1] = float(input("Green: "))/100
+		mystery[2] = float(input("Blue: "))/100
 
-    print(mystery)
+	pygame.display.flip()
 
-    pygame.display.flip()
-
+ 
