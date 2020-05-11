@@ -16,7 +16,7 @@ n3 = Neuron("Blue")
 neurons = [n1,n2,n3]
 inputLayer = NeuralNetLayer(neurons)
 
-nn = NeuralNetwork([inputLayer],9999,0.001)
+nn = NeuralNetwork([inputLayer],999999,0.000001)
 
 mystery = [2.55,2.55,2.55]
 
@@ -26,11 +26,16 @@ data = [
 		[0,2.55,0,1],#lime
 		[2.55,2.55,2.55,1],#white
 		[0,2.55,2.55,1],#cyan
+		[2.04,2.55,2.55,1],#light blue
 		#Colors That Look good on White
 		[1.28,0,0,0],#maroon
 		[0,0,0,0],#black
 		[1.28,1.28,1.28,0],#gray
-		[0,0,1.28,0]#Navy
+		[1.92,1.92,1.92,1],#silver
+		[0,0,1.28,0],#Navy
+		[0,1.02,1.02,0],#dark green
+		[2.55,2.55,0,0],#magenta
+		[1.28,1.28,0,0]#purple
 		]
 
 nn.train_all(data, reLu)

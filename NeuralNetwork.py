@@ -46,4 +46,4 @@ class NeuralNetwork:
 	def train_all(self, training_data,actFun):
 		for i in range(self.epochs):
 			self.train(training_data,actFun)
-			print("Iteration {0} of {1}".format(i, self.epochs))
+			print("Iteration {0} of {1}".format(i+1, self.epochs))
