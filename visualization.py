@@ -38,7 +38,7 @@ data = [
 		[1.28,1.28,0,0]#purple
 		]
 
-nn.train_all(data, reLu)
+nn.train_all(data, sigmoid)
 
 mystery = [2.55,2.55,2.55]
 
